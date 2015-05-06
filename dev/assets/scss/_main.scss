@@ -1,0 +1,242 @@
+*,
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+html{
+    font-size:62.5%;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body {
+	font-family: "Kohinoor", sans-serif;
+    @include font-size(16);
+    background:$off_white;
+    background:$white;
+    color:$textColor;
+    line-height:1.6;
+}
+
+// RESPONSIVE OVERRIDES / GRID ADJUSTMENTS
+// ------------------------------------------
+
+$grid-gutter-small: 4px;
+
+.inner-container {
+	
+	//@media (min-width:$screen-md){
+		padding:0 $grid-gutter-width/2;
+	//}
+}
+
+.row.gutter-small {
+
+	margin-left:0;
+	margin-right:0;
+
+	//@media (min-width:$screen-desktop){
+		margin-left:-$grid-gutter-small;
+		margin-right:-$grid-gutter-small;
+	//}
+
+	[class^="col-"], [class*=" col-"] {
+		padding:0 $grid-gutter-small;
+	}
+}
+
+@media (max-width:$screen-phone-max){
+	.container-fluid-phone {
+		padding:0;
+
+		.row {
+			margin-left:0;
+			margin-right:0;
+
+			[class^="col-"], [class*=" col-"] {
+				padding:0;
+			}
+		}
+	}
+}
+
+@media (max-width:$screen-desktop-max) {
+	.container-fluid-tablet {
+		padding-right:0;
+		padding-left:0;
+
+		.row {
+			margin-left:0;
+			margin-right:0;
+
+			[class^="col-"], [class*=" col-"] {
+				padding:0;
+			}
+		}
+	}
+}
+
+
+
+// ICONS
+// ------------------------------------------
+[class^="icon-"], [class*=" icon-"] {
+	display:inline-block;
+	vertical-align:middle;
+	overflow: hidden;
+    text-indent: -9999px;
+    background-repeat: no-repeat;
+	background-position:center center;	
+	background-size:cover;
+
+	&.icon-24 {
+		width:24px;
+		height:24px;
+		background-size:cover;
+	}
+
+	&.icon-36 {
+		width:36px;
+		height:36px;
+		background-size:cover;
+	}
+
+	&.icon-48 {
+		width:48px;
+		height:48px;
+		background-size:cover;
+	}
+}
+
+
+// FORMS
+// ------------------------------------------
+button {
+	background:transparent;
+	border:none;
+	outline:none;
+}
+
+.text-input {
+	border:1px solid $midGrey;
+	@include font-size(14);
+	border-radius:2em;
+	padding: 1.23em 1.23em 1.03em;
+	outline:none;
+	background:$white;
+
+	&:hover  {
+		background:darken($white, 1%);
+	}
+
+	&:focus  {
+		background:$off_white;
+	}
+}
+
+.text-input, .search-input {
+
+	&::-webkit-input-placeholder {
+		text-transform:uppercase;
+		color:#c5c5c5;
+	}
+
+	&:-moz-placeholder { /* Firefox 18- */
+		text-transform:uppercase;
+		color:#c5c5c5;
+	}
+
+	&::-moz-placeholder {  /* Firefox 19+ */
+		text-transform:uppercase;
+		color:#c5c5c5;
+	}
+
+	&:-ms-input-placeholder {  
+		text-transform:uppercase;
+		color:#c5c5c5;
+	}
+}
+
+.btn {
+	font-family: 'Kohinoor';
+	display:inline-block;
+	border:1px solid $midGrey;
+	@include font-size(16);
+	text-transform:uppercase;
+	border-radius:2em;
+	padding: 1.23em 3.5em 1.03em;
+	background:$white;
+	text-decoration:none;
+	color:$textColor;	
+	text-align:center;
+
+	&:hover  {
+		background:$off_white;
+	}
+
+	&.yellow {
+		border:1px solid $darkYellow;
+		background: rgb(255,220,0); /* Old browsers */
+		background: -moz-linear-gradient(top,  rgba(255,220,0,1) 0%, rgba(253,204,0,1) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,220,0,1)), color-stop(100%,rgba(253,204,0,1))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  rgba(255,220,0,1) 0%,rgba(253,204,0,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  rgba(255,220,0,1) 0%,rgba(253,204,0,1) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  rgba(255,220,0,1) 0%,rgba(253,204,0,1) 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  rgba(255,220,0,1) 0%,rgba(253,204,0,1) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffdc00', endColorstr='#fdcc00',GradientType=0 ); /* IE6-9 */
+
+		&:hover {
+			background:$yellow;
+		}
+	}	
+}
+
+// VIDEO
+// ------------------------------------------
+.video {
+	//margin-top:$grid-gutter-width;
+}
+.video-wrap-16-9 {
+	position:relative;
+	padding-top:56.25%;
+	background-size:cover;
+
+	.btn-play {
+		position:absolute;
+		left:50%;
+		top:50%;
+		margin-left:-35px;
+		margin-top:-35px;
+	}
+}
+
+// TRANSITIONS
+// ------------------------------------------
+.fade-in {
+	opacity:0;
+	@include transition(0.4s ease-out opacity);
+}
+
+.fade-in-active {
+	opacity:1;
+}
+
+// UTILITIES
+// ------------------------------------------
+.uppercase {
+	text-transform:uppercase;
+}
+
+.no-border {
+	border:none!important;
+}
+
+.text-center {
+	text-align:center;
+}
+
+
+.zero-padding{padding:0px;}
+.right-padding8{padding-right:8px;}
+.zero-margin{margin:0px;}
+.custom-left-padding{padding-left:2px;}

@@ -1,0 +1,46 @@
+GITHUB Command (git bash)
+--------------------------
+pwd - present working directory
+ls - list directory
+ls - la
+git status - shows status
+git clone path (https path from github.com) - for clone existing directory
+
+git add filename or . (.html file name) - 
+git commite -m "type any msg" - commited local
+git push origin master - for push to remort storage
+
+git pull - for pull original file remort to local
+git fetch -- all
+
+
+Grunt.js
+---------
+http://gruntjs.com/getting-started
+
+
+Command for install grunt
+-------------------------
+Assuming you already have Node, Grunt and Bower installed: (install by cmd)
+clone the project, cd to directory
+step 1: git clone (https path from github.com) 
+step 2: npm install -g grunt-cli
+step 3: npm install
+step 4: npm install -g bower
+step 5: bower install
+step 6: grunt init (initial compile)
+step 7: grunt (to watch for changes and serve the dev folder on http://localhost:3000)
+
+Final: grunt build - for build the project
+
+
+Grunt tasks
+-----------
+grunt init - run this the first time you check out the project. Compiles SASS, wires up any bower dependencies and builds your icons for the first time
+grunt - (default task) runs a watch and Node server task concurrently. Dev folder can be browsed at http://localhost:3000
+grunt build - Will run the build task into the build folder
+grunt serve - Will serve up the build folder for you to preview
+grunt serve:dev - Serves up the dev folder, without running "watch"
+grunt svg_icons - Run the SVG icon task chain on it's own
+grunt clean:temp - Remove the temp directory via Grunt. Although rm -fr .tmp is quicker
+grunt clean:build - As above but for the build folder. Because the build task updates, rather than replaces files (for speed), you'll need this first if you want to start fresh.
